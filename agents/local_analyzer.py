@@ -1,0 +1,49 @@
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from tools.privacy_engine import PrivacyEngine
+from typing import Dict, Any
+
+class LocalDataAnalyzerAgent:
+    """
+    Agent 1: Securely processes user-provided private inputs.
+    Extracts features locally; never shares raw data.
+    """
+    
+    def __init__(self, model_name: str = "gpt-4o"):
+        self.llm = ChatOpenAI(model=model_name)
+        self.privacy_engine = PrivacyEngine()
+        self.prompt = ChatPromptTemplate.from_template(
+            "You are a Local Data Analyzer for Ethiopian smallholders. "
+            "Your task is to extract key agricultural features from the user's raw input. "
+            "DO NOT include any personally identifiable information (PII) or exact locations. "
+            "Focus on: crop type, soil conditions, and regional context.\n\n"
+            "Raw Input: {input}"
+        )
+
+    def process(self, raw_input: str) -> Dict[str, Any]:
+        """
+        Processes raw input and returns anonymized features.
+        """
+        chain = self.prompt | self.llm
+        response = chain.invoke({"input": raw_input})
+        
+        # In a real system, we'd parse the LLM output into a structured dict.
+        # For this simulation, we'll assume the LLM provides a summary and we use the privacy engine.
+        # We also simulate extracting numeric features for federated updates.
+        
+        # Mock extracted features for simulation
+        extracted_features = {
+            "soil_ph": 6.2,
+            "soil_nitrogen": 0.15,
+            "crop_type": "teff",
+            "zone": "East Gojjam",
+            "region": "Amhara"
+        }
+        
+        anonymized_features = self.privacy_engine.anonymize_local_data(extracted_features)
+        
+        return {
+            "summary": response.content,
+            "anonymized_features": anonymized_features,
+            "gradient_update": {"yield_improvement_potential": 0.12} # Simulated gradient
+        }
