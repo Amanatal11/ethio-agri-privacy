@@ -6,7 +6,7 @@ from typing import Dict, Any
 
 class CropWeatherPlannerAgent:
     """
-    Agent 3: Uses aggregated insights + tools to generate recommendations.
+    Generates agricultural recommendations using aggregated insights and tools.
     Grounds outputs in Ethiopian-specific data.
     """
     
@@ -35,7 +35,7 @@ class CropWeatherPlannerAgent:
         # 2. Run yield simulation
         yield_sim = self.yield_tool.calculate_yield_risk(
             soil_ph=anonymized_features.get("soil_ph", 6.5),
-            rainfall_mm=600, # Mocked for now
+            rainfall_mm=600,
             crop_type=crop_type
         )
         

@@ -5,7 +5,7 @@ import logging
 class PrivacyEngine:
     """
     Simulates privacy-preserving mechanisms for federated learning in agriculture.
-    Inspired by 2025 trends in IoT-FL and differential privacy.
+    Implements differential privacy mechanisms for federated learning.
     """
     
     def __init__(self, epsilon: float = 0.1, delta: float = 1e-5):
@@ -63,7 +63,7 @@ class PrivacyEngine:
 if __name__ == "__main__":
     engine = PrivacyEngine(epsilon=0.5)
     
-    # Mock client updates (e.g., predicted yield improvements)
+    # Client updates (e.g., predicted yield improvements)
     updates = [
         {"yield_gain": 0.15, "pest_risk": 0.2},
         {"yield_gain": 0.18, "pest_risk": 0.25},

@@ -5,7 +5,7 @@ from typing import Dict
 class MultilingualTranslatorTool:
     """
     Translates agricultural recommendations into Amharic and Afaan Oromoo.
-    Uses LLM for high-quality contextual translation.
+    Performs high-quality contextual translation.
     """
     
     def __init__(self, model_name: str = "gpt-4o"):

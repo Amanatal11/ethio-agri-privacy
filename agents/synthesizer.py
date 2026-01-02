@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 class SynthesizerAgent:
     """
-    Agent 5: Compiles final farmer-friendly report.
+    Compiles the final farmer-friendly report.
     Supports multilingual output.
     """
     

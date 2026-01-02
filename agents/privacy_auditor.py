@@ -5,7 +5,7 @@ from typing import Dict, Any, List
 
 class PrivacyAuditorAgent:
     """
-    Agent 4: Monitors all flows for privacy leaks, bias, or ungrounded claims.
+    Monitors data flows for privacy leaks, bias, or ungrounded claims.
     Flags/intervenes if necessary.
     """
     
@@ -26,7 +26,7 @@ class PrivacyAuditorAgent:
         # 1. Tool-based audit
         tool_result = self.audit_tool.audit_content(recommendation)
         
-        # 2. LLM-based ethical audit
+        # 2. Ethical audit
         chain = self.prompt | self.llm
         response = chain.invoke({"recommendation": recommendation})
         

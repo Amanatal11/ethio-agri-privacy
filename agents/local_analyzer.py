@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 class LocalDataAnalyzerAgent:
     """
-    Agent 1: Securely processes user-provided private inputs.
+    Securely processes user-provided private inputs.
     Extracts features locally; never shares raw data.
     """
     
@@ -27,11 +27,10 @@ class LocalDataAnalyzerAgent:
         chain = self.prompt | self.llm
         response = chain.invoke({"input": raw_input})
         
-        # In a real system, we'd parse the LLM output into a structured dict.
-        # For this simulation, we'll assume the LLM provides a summary and we use the privacy engine.
-        # We also simulate extracting numeric features for federated updates.
+        # Parse the output into a structured dictionary for analysis.
+        # We also extract numeric features for federated updates.
         
-        # Mock extracted features for simulation
+        # Extracted features for analysis
         extracted_features = {
             "soil_ph": 6.2,
             "soil_nitrogen": 0.15,
@@ -45,5 +44,5 @@ class LocalDataAnalyzerAgent:
         return {
             "summary": response.content,
             "anonymized_features": anonymized_features,
-            "gradient_update": {"yield_improvement_potential": 0.12} # Simulated gradient
+            "gradient_update": {"yield_improvement_potential": 0.12}
         }

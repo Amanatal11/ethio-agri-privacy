@@ -1,20 +1,26 @@
 # Privacy-Preserving Multi-Agent Climate-Resilient Farming Advisor
 
-A research-grade multi-agent system designed for Ethiopian smallholder farmers, focusing on climate resilience and privacy-preserving federated learning simulation.
+## Project Overview
+This project implements a multi-agent system designed to provide climate-resilient agricultural advice to Ethiopian smallholder farmers. It addresses the challenge of delivering personalized, data-driven insights while preserving the privacy of individual farm data. The system utilizes a federated learning simulation to aggregate regional insights without exposing raw user inputs.
 
-## Architecture
+## Objectives
+- **Privacy Preservation**: Implement differential privacy and federated learning techniques to ensure data confidentiality.
+- **Climate Resilience**: Provide recommendations based on regional climate trends and soil conditions, aligned with Ethiopian Ministry of Agriculture guidelines.
+- **Accessibility**: Deliver outputs in multiple local languages (Amharic, Afaan Oromoo) to ensure usability for smallholders.
 
-The system uses **LangGraph** to orchestrate 5 specialized agents:
+## System Architecture
+The system is orchestrated using **LangGraph** and consists of five specialized agents:
 
-1.  **Local Data Analyzer**: Processes private farm data locally and extracts anonymized features.
-2.  **Federated Collaborator**: Aggregates insights from a regional network of farms using Differential Privacy (DP).
-3.  **Crop/Weather Planner**: Generates climate-resilient recommendations grounded in Ethiopian-specific data.
-4.  **Privacy Auditor**: Monitors all flows for data leaks and ethical alignment.
-5.  **Synthesizer**: Compiles final farmer-friendly reports in English, Amharic, and Afaan Oromoo.
+1.  **Local Data Analyzer**: Securely processes user inputs locally to extract anonymized features.
+2.  **Federated Collaborator**: Aggregates insights from a simulated network of farms using differential privacy.
+3.  **Crop/Weather Planner**: Generates agricultural recommendations based on aggregated regional data and specific local conditions.
+4.  **Privacy Auditor**: Monitors data flows to prevent privacy leaks and ensure ethical compliance.
+5.  **Synthesizer**: Compiles the final report and translates it into local languages.
 
+### Workflow
 ```mermaid
 graph TD
-    User[Farmer/Extension Worker] --> LA[Local Data Analyzer]
+    User[Farmer] --> LA[Local Data Analyzer]
     LA --> FC[Federated Collaborator]
     FC --> CP[Crop/Weather Planner]
     CP --> PA[Privacy Auditor]
@@ -23,55 +29,52 @@ graph TD
     SYN --> Output[Multilingual Report]
 ```
 
-## Features
+## Technology Stack
+- **Language**: Python 3.10+
+- **Orchestration**: LangGraph
+- **LLM Integration**: LangChain, OpenAI GPT-4o
+- **Search**: Tavily API
+- **Privacy**: Custom Differential Privacy implementation (NumPy)
 
-- **Privacy-Preserving**: Uses Differential Privacy and Federated Learning simulation to ensure raw data never leaves the local agent.
-- **Climate-Resilient**: Grounded in Ethiopian Ministry of Agriculture (MoA) guidelines and climate trends.
-- **Multilingual**: Supports Amharic and Afaan Oromoo for local accessibility.
-- **Research-Grade**: Includes benchmarking for privacy (membership inference attacks) and accuracy (utility vs. privacy).
+## Setup and Usage
 
-## Setup
+### Prerequisites
+- Python 3.10 or higher
+- API Keys for OpenAI and Tavily
 
-1.  **Clone the repository**:
+### Installation
+1.  Clone the repository:
     ```bash
-    git clone <repo-url>
+    git clone <repository_url>
     cd ethio-climate-agri-advisor
     ```
-
-2.  **Create a virtual environment**:
+2.  Create and activate a virtual environment:
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
-
-3.  **Install dependencies**:
+3.  Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
-
-4.  **Set up environment variables**:
-    Create a `.env` file with:
+4.  Configure environment variables:
+    Create a `.env` file in the root directory:
     ```env
     OPENAI_API_KEY=your_openai_key
     TAVILY_API_KEY=your_tavily_key
     ```
 
-5.  **Run the demo**:
-    ```bash
-    python3 main.py
-    ```
-
-## Benchmarking
-
-Run the evaluation scripts to see the system's performance:
-
+### Running the System
+To run the advisor demo:
 ```bash
-python3 benchmarks/privacy_eval.py
-python3 benchmarks/accuracy_eval.py
+python3 main.py
 ```
 
-## References
+## Evaluation
+The project includes scripts to evaluate privacy guarantees and system accuracy:
+- **Privacy Evaluation**: `python3 benchmarks/privacy_eval.py`
+- **Accuracy Evaluation**: `python3 benchmarks/accuracy_eval.py`
 
+## References
 - Digital Ethiopia 2030 Strategy
-- Climate-Resilient Green Economy (CRGE) initiatives
-- Federated Learning for Smart Agriculture (2025 trends)
+- Climate-Resilient Green Economy (CRGE) Strategy

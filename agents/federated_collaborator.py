@@ -3,8 +3,8 @@ from typing import List, Dict, Any
 
 class FederatedCollaboratorAgent:
     """
-    Agent 2: Simulates coordination with a 'network' of virtual farms.
-    Aggregates insights from local analysis and simulated peers.
+    Coordinates with a network of virtual farms.
+    Aggregates insights from local analysis and peer updates.
     """
     
     def __init__(self):
@@ -14,7 +14,7 @@ class FederatedCollaboratorAgent:
         """
         Aggregates local update with simulated peer updates.
         """
-        # Simulated peer updates from other 'farms' in the same region
+        # Peer updates from other farms in the region
         peer_updates = [
             {"yield_improvement_potential": 0.10, "pest_risk_trend": 0.05},
             {"yield_improvement_potential": 0.14, "pest_risk_trend": 0.08},

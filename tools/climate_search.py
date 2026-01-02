@@ -14,11 +14,11 @@ class ClimateSearchTool:
         """
         Searches for Ethiopian agricultural guidelines, weather patterns, or crop resilience.
         """
-        # Augment query for better Ethiopian context
+        # Enhance query for Ethiopian context
         enhanced_query = f"Ethiopia agriculture {query} climate resilience MoA guidelines 2024 2025"
         results = self.search.invoke({"query": enhanced_query})
         
-        # Format results for the agent
+        # Format results
         formatted_results = "\n\n".join([
             f"Source: {res['url']}\nContent: {res['content']}" 
             for res in results
