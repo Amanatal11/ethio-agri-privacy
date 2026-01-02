@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from tools.privacy_audit import PrivacyAuditTool
+from ethio_agri_advisor.tools.privacy_audit import PrivacyAuditTool
 from typing import Dict, Any, List
 
 class PrivacyAuditorAgent:

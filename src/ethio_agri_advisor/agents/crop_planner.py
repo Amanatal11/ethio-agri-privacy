@@ -1,7 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from tools.climate_search import ClimateSearchTool
-from tools.yield_simulator import YieldSimulationTool
+from ethio_agri_advisor.tools.climate_search import ClimateSearchTool
+from ethio_agri_advisor.tools.yield_simulator import YieldSimulationTool
 from typing import Dict, Any
 
 class CropWeatherPlannerAgent:

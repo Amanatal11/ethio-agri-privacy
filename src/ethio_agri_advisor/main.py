@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from core.graph import AgriAdvisorGraph
+from ethio_agri_advisor.core.graph import AgriAdvisorGraph
 
 # Load environment variables (API keys)
 load_dotenv()

@@ -1,10 +1,10 @@
 from langgraph.graph import StateGraph, END
-from core.state import AgentState
-from agents.local_analyzer import LocalDataAnalyzerAgent
-from agents.federated_collaborator import FederatedCollaboratorAgent
-from agents.crop_planner import CropWeatherPlannerAgent
-from agents.privacy_auditor import PrivacyAuditorAgent
-from agents.synthesizer import SynthesizerAgent
+from ethio_agri_advisor.core.state import AgentState
+from ethio_agri_advisor.agents.local_analyzer import LocalDataAnalyzerAgent
+from ethio_agri_advisor.agents.federated_collaborator import FederatedCollaboratorAgent
+from ethio_agri_advisor.agents.crop_planner import CropWeatherPlannerAgent
+from ethio_agri_advisor.agents.privacy_auditor import PrivacyAuditorAgent
+from ethio_agri_advisor.agents.synthesizer import SynthesizerAgent
 from typing import Dict, Any
 
 class AgriAdvisorGraph:

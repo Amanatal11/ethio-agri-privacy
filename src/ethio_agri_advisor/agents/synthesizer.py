@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from tools.translator import MultilingualTranslatorTool
+from ethio_agri_advisor.tools.translator import MultilingualTranslatorTool
 from typing import Dict, Any
 
 class SynthesizerAgent:

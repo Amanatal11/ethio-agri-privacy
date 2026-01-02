@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from tools.privacy_engine import PrivacyEngine
+from ethio_agri_advisor.tools.privacy_engine import PrivacyEngine
 from typing import Dict, Any
 
 class LocalDataAnalyzerAgent:
