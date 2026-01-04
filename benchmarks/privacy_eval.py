@@ -1,5 +1,5 @@
 import numpy as np
-from tools.privacy_engine import PrivacyEngine
+from ethio_agri_advisor.tools.privacy_engine import PrivacyEngine
 from typing import List, Dict
 
 class PrivacyEvaluator:
