@@ -1,6 +1,7 @@
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from ethio_agri_advisor.tools.privacy_engine import PrivacyEngine
+from ethio_agri_advisor.config import settings
 from typing import Dict, Any
 
 class LocalDataAnalyzerAgent:
@@ -9,8 +10,9 @@ class LocalDataAnalyzerAgent:
     Extracts features locally; never shares raw data.
     """
     
-    def __init__(self, model_name: str = "gpt-4o"):
-        self.llm = ChatOpenAI(model=model_name)
+    def __init__(self, model_name: str = None):
+        self.model_name = model_name or settings.DEFAULT_MODEL_NAME
+        self.llm = ChatGoogleGenerativeAI(model=self.model_name, google_api_key=settings.GOOGLE_API_KEY)
         self.privacy_engine = PrivacyEngine()
         self.prompt = ChatPromptTemplate.from_template(
             "You are a Local Data Analyzer for Ethiopian smallholders. "

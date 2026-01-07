@@ -1,6 +1,7 @@
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from ethio_agri_advisor.tools.privacy_audit import PrivacyAuditTool
+from ethio_agri_advisor.config import settings
 from typing import Dict, Any, List
 
 class PrivacyAuditorAgent:
@@ -9,8 +10,9 @@ class PrivacyAuditorAgent:
     Flags/intervenes if necessary.
     """
     
-    def __init__(self, model_name: str = "gpt-4o"):
-        self.llm = ChatOpenAI(model=model_name)
+    def __init__(self, model_name: str = None):
+        self.model_name = model_name or settings.DEFAULT_MODEL_NAME
+        self.llm = ChatGoogleGenerativeAI(model=self.model_name, google_api_key=settings.GOOGLE_API_KEY)
         self.audit_tool = PrivacyAuditTool()
         self.prompt = ChatPromptTemplate.from_template(
             "You are a Privacy and Ethics Auditor for an Ethiopian agricultural advisor system. "
