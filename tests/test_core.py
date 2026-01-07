@@ -7,10 +7,11 @@ def test_graph_initialization():
     import os
     from unittest.mock import patch, MagicMock
 
-    # Mock environment variables
-    with patch.dict(os.environ, {"OPENAI_API_KEY": "test-key", "TAVILY_API_KEY": "test-key"}):
-        # Mock ChatOpenAI to avoid actual API calls
-        with patch("langchain_openai.ChatOpenAI") as mock_llm:
+    # Mock environment variables and settings
+    with patch.dict(os.environ, {"GOOGLE_API_KEY": "test-key", "TAVILY_API_KEY": "test-key"}), \
+         patch("ethio_agri_advisor.config.settings.GOOGLE_API_KEY", "test-key"):
+        # Mock ChatGoogleGenerativeAI to avoid actual API calls
+        with patch("langchain_google_genai.ChatGoogleGenerativeAI") as mock_llm:
             mock_llm.return_value = MagicMock()
             try:
                 graph = AgriAdvisorGraph()
