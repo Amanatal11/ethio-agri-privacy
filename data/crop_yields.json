@@ -1,0 +1,52 @@
+{
+    "teff": {
+        "base_yield_q_ha": 15,
+        "optimal_ph_min": 5.5,
+        "optimal_ph_max": 7.5,
+        "water_requirement_mm": 450,
+        "risk_factors": [
+            "drought",
+            "waterlogging"
+        ]
+    },
+    "maize": {
+        "base_yield_q_ha": 40,
+        "optimal_ph_min": 5.5,
+        "optimal_ph_max": 7.0,
+        "water_requirement_mm": 500,
+        "risk_factors": [
+            "drought",
+            "pests"
+        ]
+    },
+    "sorghum": {
+        "base_yield_q_ha": 25,
+        "optimal_ph_min": 5.5,
+        "optimal_ph_max": 8.5,
+        "water_requirement_mm": 400,
+        "risk_factors": [
+            "birds",
+            "striga"
+        ]
+    },
+    "wheat": {
+        "base_yield_q_ha": 30,
+        "optimal_ph_min": 6.0,
+        "optimal_ph_max": 7.5,
+        "water_requirement_mm": 450,
+        "risk_factors": [
+            "rust",
+            "drought"
+        ]
+    },
+    "barley": {
+        "base_yield_q_ha": 25,
+        "optimal_ph_min": 6.0,
+        "optimal_ph_max": 7.5,
+        "water_requirement_mm": 400,
+        "risk_factors": [
+            "frost",
+            "waterlogging"
+        ]
+    }
+}
